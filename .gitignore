@@ -15,5 +15,4 @@ neuralhydrology.egg-info/*
 runs/
 configs/*
 .ipynb_checkpoints/
-data/*
 docs/build/*
