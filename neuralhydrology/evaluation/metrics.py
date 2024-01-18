@@ -49,6 +49,34 @@ def _get_fdc(da: DataArray) -> np.ndarray:
     return da.sortby(da, ascending=False).values
 
 
+def PICP(y_test, sim):
+    lower = np.zeros(qsim.shape[0])
+    upper = np.zeros(qsim.shape[0])
+    for i in range(qsim.shape[0]):
+        lower[i] = qsim.isel(date=i).min()
+        upper[i] = qsim.isel(date=i).max()
+    
+    in_the_range = np.sum(
+        (y_test >= lower) & (y_test <= upper)
+    )
+    #print(in_the_range)
+    coverage = in_the_range / np.prod(y_test.shape) * 100
+
+    return coverage
+
+def PINAW(y_test, sim):
+    lower = np.zeros(qsim.shape[0])
+    upper = np.zeros(qsim.shape[0])
+    for i in range(qsim.shape[0]):
+        lower[i] = qsim.isel(date=i).min()
+        upper[i] = qsim.isel(date=i).max()
+        
+    avg_length = np.mean(abs(upper - lower))
+    R = y_test.max() - y_test.min()
+    norm_avg_length = avg_length / R
+
+    return norm_avg_length
+
 def nse(obs: DataArray, sim: DataArray) -> float:
     r"""Calculate Nash-Sutcliffe Efficiency [#]_
     
