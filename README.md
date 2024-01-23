@@ -1,3 +1,50 @@
+# Welcome to our repository!
+
+This is a Gitlab repository for the course CEGM2003 Data Science and Artificial Intelligence for Engineers, created by the HBV group with members; 
+Dwiva Anbiya Taruna (5849578), Konstantina Bourazani (5728347), Hang Long (5743702) and Thomas Poort (4715500). As a forked repository from 
+Neuralhydrology gitlab was used for this project the original README file of that repository is included at the end of this README as an appendix.
+
+The README is structured as follows:
+
+- What is the project?
+- How is the repository organized and where can the necessary files be found?
+- Who contributed to the project and what did the workplan look like?
+
+## Rainfall-runoff modeling
+
+While hydrological predictions are fundamental for effective water resource management, the lack of uncertainty estimations poses a significant challenge. 
+Existing applications predominantly focus on point forecasts, overlooking the critical need for estimating the associated confidence levels. This gap in 
+uncertainty consideration hinders informed decision-making. Moreover, the absence of dedicated metrics for evaluating uncertainty estimation further compounds 
+the issue. 
+
+For this reason a LSTM (Long Short-Term Memory) model was trained based on imported CAMELS data for the United States, specifically for Hydrological Unit 17 
+ (HUC 17) which has data for basins in the North-West upper corner of the United States (namely the states Washington, Oregon).
+As the LSTM model itself only returns deterministic results (one discharge prediction per timestep), four different methods were used to obtain
+uncertainty estimation; Monte-Carlo Dropout (MCD), GMM, UMAL and CMAL. Based on the results of these methods uncertainty intervals were created and 
+these were evaluated by newly introduced evaluation metrics, the PICP (Prediction Interval Coverage Probability) and PINAW (Prediction Interval Normalized 
+Average Width). By computing the uncertainty interval of the methods we hope to bridge the gap in knowledge that currently exists due to the fact that
+only deterministic results are predicted. Furthermore, by evaluating these uncertainty estimations and creating the evaluation metrics we try
+to estimate what indeed is the best way to model rainfall runoff.
+
+Additionally, the result of the ensemble of the predictions was compared to just the deterministic results of the LSTM. And Transfer Learning was used as well
+to assess whether the trained model, trained by data from HUC 17, could also make accurate prediction for basins from another HUC.
+
+## Where can the used files be found
+
+
+
+
+
+
+What the project does
+Why the project is useful
+How users can get started with the project
+Where users can get help with your project
+Who maintains and contributes to the project
+
+
+# Appendix
+
 ![#](docs/source/_static/img/neural-hyd-logo-black.png)
 
 Python library to train neural networks with a strong focus on hydrological applications.
