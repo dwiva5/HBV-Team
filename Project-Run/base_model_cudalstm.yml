@@ -1,7 +1,7 @@
 # --- Experiment configurations --------------------------------------------------------------------
 
 # experiment name, used as folder name
-experiment_name: run_ealstm
+experiment_name: run_cudalstm
 
 # files to specify training, validation and test basins (relative to code root or absolute path)
 train_basin_file: basin_huc_17.txt
@@ -9,12 +9,12 @@ validation_basin_file: basin_huc_17.txt
 test_basin_file: basin_huc_17.txt
 
 # training, validation and test time periods (format = 'dd/mm/yyyy')
-train_start_date: "01/10/1999"
-train_end_date: "30/09/2008"
-validation_start_date: "01/10/1980"
-validation_end_date: "30/09/1989"
-test_start_date: "01/10/1989"
-test_end_date: "30/09/1999"
+train_start_date: "01/01/1980"
+train_end_date: "31/12/1999"
+validation_start_date: "01/01/2000"
+validation_end_date: "31/12/2004"
+test_start_date: "01/01/2005"
+test_end_date: "31/12/2009"
 
 # which GPU (id) to use [in format of cuda:0, cuda:1 etc, or cpu or None]
 device: cuda:0
@@ -37,7 +37,7 @@ metrics:
 
 # base model type [lstm, ealstm, cudalstm, embcudalstm, mtslstm]
 # (has to match the if statement in modelzoo/__init__.py)
-model: ealstm
+model: cudalstm
 
 # prediction head [regression]. Define the head specific parameters below
 head: regression
@@ -53,14 +53,8 @@ hidden_size: 20
 # Initial bias value of the forget gate
 initial_forget_bias: 3
 
-mc_dropout: True
-
-n_samples: 20
-
-negative_sample_handling: 'clip'
-
 # Dropout applied to the output of the LSTM
-output_dropout: 0.4
+output_dropout: 0
 
 # --- Training configuration -----------------------------------------------------------------------
 
