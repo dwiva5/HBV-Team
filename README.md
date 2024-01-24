@@ -4,6 +4,8 @@ This is a Gitlab repository for the course CEGM2003 Data Science and Artificial 
 Dwiva Anbiya Taruna (5849578), Konstantina Bourazani (5728347), Hang Long (5743702) and Thomas Poort (4715500). As a forked repository from 
 Neuralhydrology gitlab was used for this project the original README file of that repository is included at the end of this README as an appendix.
 
+![#](docs/source/_static/img/DSAIE_logo.png)
+
 The README is structured as follows:
 
 - What is the project?
@@ -20,7 +22,8 @@ the issue.
 For this reason a LSTM (Long Short-Term Memory) model was trained based on imported CAMELS data for the United States, specifically for Hydrological Unit 17 
  (HUC 17) which has data for basins in the North-West upper corner of the United States (namely the states Washington, Oregon).
 As the LSTM model itself only returns deterministic results (one discharge prediction per timestep), four different methods were used to obtain
-uncertainty estimation; Monte-Carlo Dropout (MCD), GMM, UMAL and CMAL. Based on the results of these methods uncertainty intervals were created and 
+uncertainty estimation; Monte-Carlo Dropout (MCD), Gaussian Mixture Density Network (GMM), Uncountable Mixture of Asymmetric Laplacians (UMAL) and Countable 
+Mixture of Asymmetric Laplacians (CMAL). Based on the results of these methods uncertainty intervals were created and 
 these were evaluated by newly introduced evaluation metrics, the PICP (Prediction Interval Coverage Probability) and PINAW (Prediction Interval Normalized 
 Average Width). By computing the uncertainty interval of the methods we hope to bridge the gap in knowledge that currently exists due to the fact that
 only deterministic results are predicted. Furthermore, by evaluating these uncertainty estimations and creating the evaluation metrics we try
@@ -31,19 +34,31 @@ to assess whether the trained model, trained by data from HUC 17, could also mak
 
 ## Where can the used files be found
 
+- Data:
+The data used for the proejct can be found under the data folder. In this folder CAMELSUS data can be found which
+consists of three main datasets; the basin_mean_forcing containing all the meteorological time series data, usgs_streamflow
+containing the streamflow data and camels_attribute_v2.0 that extracts all the basin attributes.
+This data was imported for both HUC 17 and HUC 18.
+
+- Models: 
+Under the neuralhydrology folder, there is a subfolder called modelzoo. This folder contains a cudalstm.py file that has the coded
+LSTM model stored there as well as a head.py file which contains the coding for the MCD, GMM, UMAL and CMAL.
+
+- Notebooks:
+The notebooks that were used to actually use the data and models are stored in the Project-Run file. 
+
+- Evaluation Metrics:
+Lastly, the introduced evaluation metrics such as the PICP and PINAW can be found under neuralhydrology/evaluation/metrics.py in which all
+the available metrics are stored.
+
+
+
+ 
 
 
 
 
-
-What the project does
-Why the project is useful
-How users can get started with the project
-Where users can get help with your project
-Who maintains and contributes to the project
-
-
-# Appendix
+## Appendix
 
 ![#](docs/source/_static/img/neural-hyd-logo-black.png)
 
