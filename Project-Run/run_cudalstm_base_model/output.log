@@ -1,0 +1,591 @@
+2024-01-24 16:06:44,442: Logging to /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_160644/output.log initialized.
+2024-01-24 16:06:44,444: ### Folder structure created at /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_160644
+2024-01-24 16:06:44,445: ### Run configurations for run_cudalstm
+2024-01-24 16:06:44,446: experiment_name: run_cudalstm
+2024-01-24 16:06:44,447: train_basin_file: basin_huc_17.txt
+2024-01-24 16:06:44,448: validation_basin_file: basin_huc_17.txt
+2024-01-24 16:06:44,449: test_basin_file: basin_huc_17.txt
+2024-01-24 16:06:44,450: train_start_date: 1980-01-01 00:00:00
+2024-01-24 16:06:44,450: train_end_date: 1999-12-31 00:00:00
+2024-01-24 16:06:44,451: validation_start_date: 2000-01-01 00:00:00
+2024-01-24 16:06:44,452: validation_end_date: 2004-12-31 00:00:00
+2024-01-24 16:06:44,453: test_start_date: 2005-01-01 00:00:00
+2024-01-24 16:06:44,454: test_end_date: 2009-12-31 00:00:00
+2024-01-24 16:06:44,455: device: cuda:0
+2024-01-24 16:06:44,456: validate_every: 3
+2024-01-24 16:06:44,457: validate_n_random_basins: 91
+2024-01-24 16:06:44,458: metrics: ['NSE']
+2024-01-24 16:06:44,459: model: cudalstm
+2024-01-24 16:06:44,463: head: regression
+2024-01-24 16:06:44,464: output_activation: linear
+2024-01-24 16:06:44,465: hidden_size: 20
+2024-01-24 16:06:44,466: initial_forget_bias: 3
+2024-01-24 16:06:44,467: output_dropout: 0
+2024-01-24 16:06:44,468: optimizer: Adam
+2024-01-24 16:06:44,469: loss: MSE
+2024-01-24 16:06:44,470: learning_rate: {0: 0.01, 30: 0.005, 40: 0.001}
+2024-01-24 16:06:44,471: batch_size: 256
+2024-01-24 16:06:44,472: epochs: 50
+2024-01-24 16:06:44,473: clip_gradient_norm: 1
+2024-01-24 16:06:44,473: predict_last_n: 1
+2024-01-24 16:06:44,475: seq_length: 365
+2024-01-24 16:06:44,475: num_workers: 8
+2024-01-24 16:06:44,477: log_interval: 5
+2024-01-24 16:06:44,477: log_tensorboard: True
+2024-01-24 16:06:44,478: log_n_figures: 1
+2024-01-24 16:06:44,479: save_weights_every: 1
+2024-01-24 16:06:44,480: dataset: camels_us
+2024-01-24 16:06:44,481: data_dir: ../data/CAMELS_US
+2024-01-24 16:06:44,482: forcings: ['maurer', 'daymet', 'nldas']
+2024-01-24 16:06:44,483: dynamic_inputs: ['PRCP(mm/day)_nldas', 'PRCP(mm/day)_maurer', 'prcp(mm/day)_daymet', 'srad(W/m2)_daymet', 'tmax(C)_daymet', 'tmin(C)_daymet', 'vp(Pa)_daymet']
+2024-01-24 16:06:44,484: target_variables: ['QObs(mm/d)']
+2024-01-24 16:06:44,485: clip_targets_to_zero: ['QObs(mm/d)']
+2024-01-24 16:06:44,486: static_attributes: ['elev_mean', 'slope_mean', 'area_gages2', 'frac_forest', 'lai_max', 'lai_diff', 'gvf_max', 'gvf_diff', 'soil_depth_pelletier', 'soil_depth_statsgo', 'soil_porosity', 'soil_conductivity', 'max_water_content', 'sand_frac', 'silt_frac', 'clay_frac', 'carbonate_rocks_frac', 'geol_permeability', 'p_mean', 'pet_mean', 'aridity', 'frac_snow', 'high_prec_freq', 'high_prec_dur', 'low_prec_freq', 'low_prec_dur']
+2024-01-24 16:06:44,487: number_of_basins: 91
+2024-01-24 16:06:44,488: run_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_160644
+2024-01-24 16:06:44,489: train_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_160644/train_data
+2024-01-24 16:06:44,490: img_log_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_160644/img_log
+2024-01-24 16:06:44,513: ### Device cuda:0 will be used for training
+2024-01-24 16:06:44,666: Loading basin data into xarray data set.
+2024-01-24 16:07:03,142: Create lookup table and convert to pytorch tensor
+2024-01-24 16:08:28,746: Epoch 1 average loss: avg_loss: 0.09423, avg_total_loss: 0.09423
+2024-01-24 16:09:38,738: Epoch 2 average loss: avg_loss: 0.07092, avg_total_loss: 0.07092
+2024-01-24 16:10:49,126: Epoch 3 average loss: avg_loss: 0.06585, avg_total_loss: 0.06585
+2024-01-24 16:11:29,229: Epoch 3 average validation loss: 0.07050 -- Median validation metrics: avg_loss: 0.07050, NSE: 0.78110
+2024-01-24 16:12:47,726: Epoch 4 average loss: avg_loss: 0.06422, avg_total_loss: 0.06422
+2024-01-24 16:14:03,829: Epoch 5 average loss: avg_loss: 0.06379, avg_total_loss: 0.06379
+2024-01-24 16:15:19,112: Epoch 6 average loss: avg_loss: 0.06157, avg_total_loss: 0.06157
+2024-01-24 16:15:36,199: Epoch 6 average validation loss: 0.06626 -- Median validation metrics: avg_loss: 0.06626, NSE: 0.81713
+2024-01-24 16:16:53,535: Epoch 7 average loss: avg_loss: 0.06137, avg_total_loss: 0.06137
+2024-01-24 16:18:10,923: Epoch 8 average loss: avg_loss: 0.06171, avg_total_loss: 0.06171
+2024-01-24 16:19:26,010: Epoch 9 average loss: avg_loss: 0.05991, avg_total_loss: 0.05991
+2024-01-24 16:19:44,399: Epoch 9 average validation loss: 0.06418 -- Median validation metrics: avg_loss: 0.06418, NSE: 0.81706
+2024-01-24 16:21:03,136: Epoch 10 average loss: avg_loss: 0.05849, avg_total_loss: 0.05849
+2024-01-24 16:22:22,114: Epoch 11 average loss: avg_loss: 0.05813, avg_total_loss: 0.05813
+2024-01-24 16:23:39,517: Epoch 12 average loss: avg_loss: 0.05831, avg_total_loss: 0.05831
+2024-01-24 16:23:58,621: Epoch 12 average validation loss: 0.06533 -- Median validation metrics: avg_loss: 0.06533, NSE: 0.80627
+2024-01-24 16:25:16,108: Epoch 13 average loss: avg_loss: 0.05736, avg_total_loss: 0.05736
+2024-01-24 16:26:33,025: Epoch 14 average loss: avg_loss: 0.05832, avg_total_loss: 0.05832
+2024-01-24 16:27:49,405: Epoch 15 average loss: avg_loss: 0.05756, avg_total_loss: 0.05756
+2024-01-24 16:28:07,918: Epoch 15 average validation loss: 0.06327 -- Median validation metrics: avg_loss: 0.06327, NSE: 0.78514
+2024-01-24 16:29:25,015: Epoch 16 average loss: avg_loss: 0.05720, avg_total_loss: 0.05720
+2024-01-24 16:30:42,323: Epoch 17 average loss: avg_loss: 0.05744, avg_total_loss: 0.05744
+2024-01-24 16:31:58,710: Epoch 18 average loss: avg_loss: 0.05671, avg_total_loss: 0.05671
+2024-01-24 16:32:17,313: Epoch 18 average validation loss: 0.06423 -- Median validation metrics: avg_loss: 0.06423, NSE: 0.80773
+2024-01-24 16:33:34,422: Epoch 19 average loss: avg_loss: 0.05634, avg_total_loss: 0.05634
+2024-01-24 16:34:50,349: Epoch 20 average loss: avg_loss: 0.05685, avg_total_loss: 0.05685
+2024-01-24 16:36:06,825: Epoch 21 average loss: avg_loss: 0.05641, avg_total_loss: 0.05641
+2024-01-24 16:36:25,810: Epoch 21 average validation loss: 0.06748 -- Median validation metrics: avg_loss: 0.06748, NSE: 0.80725
+2024-01-24 16:37:43,228: Epoch 22 average loss: avg_loss: 0.05841, avg_total_loss: 0.05841
+2024-01-24 16:38:59,517: Epoch 23 average loss: avg_loss: 0.05667, avg_total_loss: 0.05667
+2024-01-24 16:40:17,039: Epoch 24 average loss: avg_loss: 0.05523, avg_total_loss: 0.05523
+2024-01-24 16:40:35,528: Epoch 24 average validation loss: 0.06756 -- Median validation metrics: avg_loss: 0.06756, NSE: 0.79959
+2024-01-24 16:41:52,520: Epoch 25 average loss: avg_loss: 0.05673, avg_total_loss: 0.05673
+2024-01-24 16:43:08,134: Epoch 26 average loss: avg_loss: 0.05492, avg_total_loss: 0.05492
+2024-01-24 16:44:24,831: Epoch 27 average loss: avg_loss: 0.05611, avg_total_loss: 0.05611
+2024-01-24 16:44:43,399: Epoch 27 average validation loss: 0.06402 -- Median validation metrics: avg_loss: 0.06402, NSE: 0.82949
+2024-01-24 16:46:01,650: Epoch 28 average loss: avg_loss: 0.05542, avg_total_loss: 0.05542
+2024-01-24 16:47:17,921: Epoch 29 average loss: avg_loss: 0.05747, avg_total_loss: 0.05747
+2024-01-24 16:47:17,927: Setting learning rate to 0.005
+2024-01-24 16:48:36,122: Epoch 30 average loss: avg_loss: 0.05398, avg_total_loss: 0.05398
+2024-01-24 16:48:54,833: Epoch 30 average validation loss: 0.06102 -- Median validation metrics: avg_loss: 0.06102, NSE: 0.81307
+2024-01-24 16:50:12,229: Epoch 31 average loss: avg_loss: 0.05214, avg_total_loss: 0.05214
+2024-01-24 16:51:28,806: Epoch 32 average loss: avg_loss: 0.05040, avg_total_loss: 0.05040
+2024-01-24 16:52:46,131: Epoch 33 average loss: avg_loss: 0.04939, avg_total_loss: 0.04939
+2024-01-24 16:53:05,010: Epoch 33 average validation loss: 0.05717 -- Median validation metrics: avg_loss: 0.05717, NSE: 0.82749
+2024-01-24 16:54:20,059: Epoch 34 average loss: avg_loss: 0.04880, avg_total_loss: 0.04880
+2024-01-24 16:55:37,128: Epoch 35 average loss: avg_loss: 0.04811, avg_total_loss: 0.04811
+2024-01-24 16:56:55,945: Epoch 36 average loss: avg_loss: 0.04831, avg_total_loss: 0.04831
+2024-01-24 16:57:14,406: Epoch 36 average validation loss: 0.06286 -- Median validation metrics: avg_loss: 0.06286, NSE: 0.82919
+2024-01-24 16:58:32,552: Epoch 37 average loss: avg_loss: 0.04815, avg_total_loss: 0.04815
+2024-01-24 16:59:52,137: Epoch 38 average loss: avg_loss: 0.04718, avg_total_loss: 0.04718
+2024-01-24 17:01:11,249: Epoch 39 average loss: avg_loss: 0.04759, avg_total_loss: 0.04759
+2024-01-24 17:01:30,305: Epoch 39 average validation loss: 0.06040 -- Median validation metrics: avg_loss: 0.06040, NSE: 0.81017
+2024-01-24 17:01:30,306: Setting learning rate to 0.001
+2024-01-24 17:02:46,398: Epoch 40 average loss: avg_loss: 0.04292, avg_total_loss: 0.04292
+2024-01-24 17:04:02,521: Epoch 41 average loss: avg_loss: 0.04209, avg_total_loss: 0.04209
+2024-01-24 17:05:20,315: Epoch 42 average loss: avg_loss: 0.04193, avg_total_loss: 0.04193
+2024-01-24 17:05:38,717: Epoch 42 average validation loss: 0.05910 -- Median validation metrics: avg_loss: 0.05910, NSE: 0.83647
+2024-01-24 17:06:53,928: Epoch 43 average loss: avg_loss: 0.04167, avg_total_loss: 0.04167
+2024-01-24 17:08:10,640: Epoch 44 average loss: avg_loss: 0.04158, avg_total_loss: 0.04158
+2024-01-24 17:09:28,425: Epoch 45 average loss: avg_loss: 0.04139, avg_total_loss: 0.04139
+2024-01-24 17:09:46,504: Epoch 45 average validation loss: 0.05764 -- Median validation metrics: avg_loss: 0.05764, NSE: 0.83461
+2024-01-24 17:11:03,118: Epoch 46 average loss: avg_loss: 0.04127, avg_total_loss: 0.04127
+2024-01-24 17:12:20,819: Epoch 47 average loss: avg_loss: 0.04114, avg_total_loss: 0.04114
+2024-01-24 17:13:38,420: Epoch 48 average loss: avg_loss: 0.04110, avg_total_loss: 0.04110
+2024-01-24 17:13:56,517: Epoch 48 average validation loss: 0.05984 -- Median validation metrics: avg_loss: 0.05984, NSE: 0.83260
+2024-01-24 17:15:13,923: Epoch 49 average loss: avg_loss: 0.04099, avg_total_loss: 0.04099
+2024-01-24 17:16:29,145: Epoch 50 average loss: avg_loss: 0.04082, avg_total_loss: 0.04082
+2024-01-24 19:16:37,879: Logging to /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_191637/output.log initialized.
+2024-01-24 19:16:37,880: ### Folder structure created at /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_191637
+2024-01-24 19:16:37,881: ### Run configurations for run_cudalstm
+2024-01-24 19:16:37,882: experiment_name: run_cudalstm
+2024-01-24 19:16:37,884: train_basin_file: basin_huc_17.txt
+2024-01-24 19:16:37,885: validation_basin_file: basin_huc_17.txt
+2024-01-24 19:16:37,886: test_basin_file: basin_huc_17.txt
+2024-01-24 19:16:37,888: train_start_date: 1980-01-01 00:00:00
+2024-01-24 19:16:37,889: train_end_date: 1999-12-31 00:00:00
+2024-01-24 19:16:37,890: validation_start_date: 2000-01-01 00:00:00
+2024-01-24 19:16:37,891: validation_end_date: 2004-12-31 00:00:00
+2024-01-24 19:16:37,892: test_start_date: 2005-01-01 00:00:00
+2024-01-24 19:16:37,894: test_end_date: 2009-12-31 00:00:00
+2024-01-24 19:16:37,895: device: cuda:0
+2024-01-24 19:16:37,896: validate_every: 3
+2024-01-24 19:16:37,898: validate_n_random_basins: 91
+2024-01-24 19:16:37,899: metrics: ['NSE']
+2024-01-24 19:16:37,899: model: cudalstm
+2024-01-24 19:16:37,900: head: regression
+2024-01-24 19:16:37,901: output_activation: linear
+2024-01-24 19:16:37,902: hidden_size: 20
+2024-01-24 19:16:37,903: initial_forget_bias: 3
+2024-01-24 19:16:37,904: mc_dropout: True
+2024-01-24 19:16:37,905: n_samples: 20
+2024-01-24 19:16:37,908: negative_sample_handling: clip
+2024-01-24 19:16:37,909: output_dropout: 0.4
+2024-01-24 19:16:37,910: optimizer: Adam
+2024-01-24 19:16:37,911: loss: MSE
+2024-01-24 19:16:37,913: learning_rate: {0: 0.01, 30: 0.005, 40: 0.001}
+2024-01-24 19:16:37,914: batch_size: 256
+2024-01-24 19:16:37,915: epochs: 50
+2024-01-24 19:16:37,916: clip_gradient_norm: 1
+2024-01-24 19:16:37,917: predict_last_n: 1
+2024-01-24 19:16:37,918: seq_length: 365
+2024-01-24 19:16:37,920: num_workers: 8
+2024-01-24 19:16:37,921: log_interval: 5
+2024-01-24 19:16:37,921: log_tensorboard: True
+2024-01-24 19:16:37,922: log_n_figures: 1
+2024-01-24 19:16:37,924: save_weights_every: 1
+2024-01-24 19:16:37,925: dataset: camels_us
+2024-01-24 19:16:37,926: data_dir: ../data/CAMELS_US
+2024-01-24 19:16:37,927: forcings: ['maurer', 'daymet', 'nldas']
+2024-01-24 19:16:37,928: dynamic_inputs: ['PRCP(mm/day)_nldas', 'PRCP(mm/day)_maurer', 'prcp(mm/day)_daymet', 'srad(W/m2)_daymet', 'tmax(C)_daymet', 'tmin(C)_daymet', 'vp(Pa)_daymet']
+2024-01-24 19:16:37,930: target_variables: ['QObs(mm/d)']
+2024-01-24 19:16:37,931: clip_targets_to_zero: ['QObs(mm/d)']
+2024-01-24 19:16:37,932: static_attributes: ['elev_mean', 'slope_mean', 'area_gages2', 'frac_forest', 'lai_max', 'lai_diff', 'gvf_max', 'gvf_diff', 'soil_depth_pelletier', 'soil_depth_statsgo', 'soil_porosity', 'soil_conductivity', 'max_water_content', 'sand_frac', 'silt_frac', 'clay_frac', 'carbonate_rocks_frac', 'geol_permeability', 'p_mean', 'pet_mean', 'aridity', 'frac_snow', 'high_prec_freq', 'high_prec_dur', 'low_prec_freq', 'low_prec_dur']
+2024-01-24 19:16:37,933: number_of_basins: 91
+2024-01-24 19:16:37,934: run_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_191637
+2024-01-24 19:16:37,935: train_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_191637/train_data
+2024-01-24 19:16:37,936: img_log_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_191637/img_log
+2024-01-24 19:16:37,937: ### Device cuda:0 will be used for training
+2024-01-24 19:16:38,104: Loading basin data into xarray data set.
+2024-01-24 19:16:55,689: Create lookup table and convert to pytorch tensor
+2024-01-24 19:18:12,851: Epoch 1 average loss: avg_loss: 0.13195, avg_total_loss: 0.13195
+2024-01-24 19:19:22,907: Epoch 2 average loss: avg_loss: 0.10997, avg_total_loss: 0.10997
+2024-01-24 19:20:33,554: Epoch 3 average loss: avg_loss: 0.10651, avg_total_loss: 0.10651
+2024-01-24 19:22:00,448: Epoch 3 average validation loss: 0.08124 -- Median validation metrics: avg_loss: 0.08124, NSE: 0.77511
+2024-01-24 19:23:10,972: Epoch 4 average loss: avg_loss: 0.10288, avg_total_loss: 0.10288
+2024-01-24 19:24:21,729: Epoch 5 average loss: avg_loss: 0.10121, avg_total_loss: 0.10121
+2024-01-24 19:25:32,223: Epoch 6 average loss: avg_loss: 0.10159, avg_total_loss: 0.10159
+2024-01-24 19:26:36,798: Epoch 6 average validation loss: 0.07991 -- Median validation metrics: avg_loss: 0.07991, NSE: 0.75540
+2024-01-24 19:39:33,793: Logging to /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_193933/output.log initialized.
+2024-01-24 19:39:33,794: ### Folder structure created at /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_193933
+2024-01-24 19:39:33,795: ### Run configurations for run_cudalstm
+2024-01-24 19:39:33,796: experiment_name: run_cudalstm
+2024-01-24 19:39:33,798: train_basin_file: basin_huc_17.txt
+2024-01-24 19:39:33,799: validation_basin_file: basin_huc_17.txt
+2024-01-24 19:39:33,800: test_basin_file: basin_huc_17.txt
+2024-01-24 19:39:33,801: train_start_date: 1980-01-01 00:00:00
+2024-01-24 19:39:33,803: train_end_date: 1999-12-31 00:00:00
+2024-01-24 19:39:33,806: validation_start_date: 2000-01-01 00:00:00
+2024-01-24 19:39:33,806: validation_end_date: 2004-12-31 00:00:00
+2024-01-24 19:39:33,808: test_start_date: 2005-01-01 00:00:00
+2024-01-24 19:39:33,809: test_end_date: 2009-12-31 00:00:00
+2024-01-24 19:39:33,809: device: cuda:0
+2024-01-24 19:39:33,811: validate_every: 3
+2024-01-24 19:39:33,812: validate_n_random_basins: 91
+2024-01-24 19:39:33,813: metrics: ['NSE']
+2024-01-24 19:39:33,814: model: cudalstm
+2024-01-24 19:39:33,815: head: regression
+2024-01-24 19:39:33,816: output_activation: linear
+2024-01-24 19:39:33,817: hidden_size: 20
+2024-01-24 19:39:33,819: initial_forget_bias: 3
+2024-01-24 19:39:33,820: mc_dropout: True
+2024-01-24 19:39:33,821: n_samples: 20
+2024-01-24 19:39:33,822: negative_sample_handling: clip
+2024-01-24 19:39:33,823: output_dropout: 0.4
+2024-01-24 19:39:33,823: optimizer: Adam
+2024-01-24 19:39:33,824: loss: MSE
+2024-01-24 19:39:33,825: learning_rate: {0: 0.005, 30: 0.005, 40: 0.001}
+2024-01-24 19:39:33,827: batch_size: 256
+2024-01-24 19:39:33,828: epochs: 50
+2024-01-24 19:39:33,829: clip_gradient_norm: 1
+2024-01-24 19:39:33,830: predict_last_n: 1
+2024-01-24 19:39:33,831: seq_length: 365
+2024-01-24 19:39:33,832: num_workers: 8
+2024-01-24 19:39:33,834: log_interval: 5
+2024-01-24 19:39:33,834: log_tensorboard: True
+2024-01-24 19:39:33,836: log_n_figures: 1
+2024-01-24 19:39:33,837: save_weights_every: 1
+2024-01-24 19:39:33,838: dataset: camels_us
+2024-01-24 19:39:33,839: data_dir: ../data/CAMELS_US
+2024-01-24 19:39:33,840: forcings: ['maurer', 'daymet', 'nldas']
+2024-01-24 19:39:33,841: dynamic_inputs: ['PRCP(mm/day)_nldas', 'PRCP(mm/day)_maurer', 'prcp(mm/day)_daymet', 'srad(W/m2)_daymet', 'tmax(C)_daymet', 'tmin(C)_daymet', 'vp(Pa)_daymet']
+2024-01-24 19:39:33,842: target_variables: ['QObs(mm/d)']
+2024-01-24 19:39:33,843: clip_targets_to_zero: ['QObs(mm/d)']
+2024-01-24 19:39:33,844: static_attributes: ['elev_mean', 'slope_mean', 'area_gages2', 'frac_forest', 'lai_max', 'lai_diff', 'gvf_max', 'gvf_diff', 'soil_depth_pelletier', 'soil_depth_statsgo', 'soil_porosity', 'soil_conductivity', 'max_water_content', 'sand_frac', 'silt_frac', 'clay_frac', 'carbonate_rocks_frac', 'geol_permeability', 'p_mean', 'pet_mean', 'aridity', 'frac_snow', 'high_prec_freq', 'high_prec_dur', 'low_prec_freq', 'low_prec_dur']
+2024-01-24 19:39:33,845: number_of_basins: 91
+2024-01-24 19:39:33,846: run_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_193933
+2024-01-24 19:39:33,847: train_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_193933/train_data
+2024-01-24 19:39:33,849: img_log_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_193933/img_log
+2024-01-24 19:39:33,850: ### Device cuda:0 will be used for training
+2024-01-24 19:39:34,006: Loading basin data into xarray data set.
+2024-01-24 19:39:51,490: Create lookup table and convert to pytorch tensor
+2024-01-24 19:41:09,053: Epoch 1 average loss: avg_loss: 0.12779, avg_total_loss: 0.12779
+2024-01-24 19:42:19,650: Epoch 2 average loss: avg_loss: 0.09815, avg_total_loss: 0.09815
+2024-01-24 19:43:30,027: Epoch 3 average loss: avg_loss: 0.09466, avg_total_loss: 0.09466
+2024-01-24 19:44:56,489: Epoch 3 average validation loss: 0.06999 -- Median validation metrics: avg_loss: 0.06999, NSE: 0.79693
+2024-01-24 19:46:06,798: Epoch 4 average loss: avg_loss: 0.08993, avg_total_loss: 0.08993
+2024-01-24 19:47:17,251: Epoch 5 average loss: avg_loss: 0.09096, avg_total_loss: 0.09096
+2024-01-24 19:48:27,657: Epoch 6 average loss: avg_loss: 0.08955, avg_total_loss: 0.08955
+2024-01-24 19:49:31,709: Epoch 6 average validation loss: 0.07110 -- Median validation metrics: avg_loss: 0.07110, NSE: 0.80849
+2024-01-24 19:50:41,626: Epoch 7 average loss: avg_loss: 0.08576, avg_total_loss: 0.08576
+2024-01-24 19:51:51,857: Epoch 8 average loss: avg_loss: 0.08528, avg_total_loss: 0.08528
+2024-01-24 19:53:02,314: Epoch 9 average loss: avg_loss: 0.08436, avg_total_loss: 0.08436
+2024-01-24 19:54:06,417: Epoch 9 average validation loss: 0.06629 -- Median validation metrics: avg_loss: 0.06629, NSE: 0.81090
+2024-01-24 19:55:16,245: Epoch 10 average loss: avg_loss: 0.08407, avg_total_loss: 0.08407
+2024-01-24 19:56:26,714: Epoch 11 average loss: avg_loss: 0.08383, avg_total_loss: 0.08383
+2024-01-24 20:21:01,585: Logging to /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_202101/output.log initialized.
+2024-01-24 20:21:01,586: ### Folder structure created at /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_202101
+2024-01-24 20:21:01,587: ### Run configurations for run_cudalstm
+2024-01-24 20:21:01,588: experiment_name: run_cudalstm
+2024-01-24 20:21:01,590: train_basin_file: basin_huc_17.txt
+2024-01-24 20:21:01,590: validation_basin_file: basin_huc_17.txt
+2024-01-24 20:21:01,592: test_basin_file: basin_huc_17.txt
+2024-01-24 20:21:01,593: train_start_date: 1980-01-01 00:00:00
+2024-01-24 20:21:01,594: train_end_date: 1999-12-31 00:00:00
+2024-01-24 20:21:01,595: validation_start_date: 2000-01-01 00:00:00
+2024-01-24 20:21:01,596: validation_end_date: 2004-12-31 00:00:00
+2024-01-24 20:21:01,598: test_start_date: 2005-01-01 00:00:00
+2024-01-24 20:21:01,599: test_end_date: 2009-12-31 00:00:00
+2024-01-24 20:21:01,600: device: cuda:0
+2024-01-24 20:21:01,601: validate_every: 3
+2024-01-24 20:21:01,602: validate_n_random_basins: 91
+2024-01-24 20:21:01,603: metrics: ['NSE']
+2024-01-24 20:21:01,605: model: cudalstm
+2024-01-24 20:21:01,606: head: regression
+2024-01-24 20:21:01,607: output_activation: linear
+2024-01-24 20:21:01,608: hidden_size: 20
+2024-01-24 20:21:01,610: initial_forget_bias: 3
+2024-01-24 20:21:01,610: mc_dropout: True
+2024-01-24 20:21:01,612: n_samples: 20
+2024-01-24 20:21:01,613: negative_sample_handling: clip
+2024-01-24 20:21:01,614: output_dropout: 0.4
+2024-01-24 20:21:01,615: optimizer: Adam
+2024-01-24 20:21:01,616: loss: MSE
+2024-01-24 20:21:01,617: learning_rate: {0: 0.005, 30: 0.005, 40: 0.001}
+2024-01-24 20:21:01,619: batch_size: 256
+2024-01-24 20:21:01,620: epochs: 50
+2024-01-24 20:21:01,621: clip_gradient_norm: 1
+2024-01-24 20:21:01,622: predict_last_n: 1
+2024-01-24 20:21:01,623: seq_length: 365
+2024-01-24 20:21:01,624: num_workers: 8
+2024-01-24 20:21:01,625: log_interval: 5
+2024-01-24 20:21:01,626: log_tensorboard: True
+2024-01-24 20:21:01,628: log_n_figures: 1
+2024-01-24 20:21:01,628: save_weights_every: 1
+2024-01-24 20:21:01,629: dataset: camels_us
+2024-01-24 20:21:01,631: data_dir: ../data/CAMELS_US
+2024-01-24 20:21:01,632: forcings: ['maurer', 'daymet', 'nldas']
+2024-01-24 20:21:01,633: dynamic_inputs: ['PRCP(mm/day)_nldas', 'PRCP(mm/day)_maurer', 'prcp(mm/day)_daymet', 'srad(W/m2)_daymet', 'tmax(C)_daymet', 'tmin(C)_daymet', 'vp(Pa)_daymet']
+2024-01-24 20:21:01,634: target_variables: ['QObs(mm/d)']
+2024-01-24 20:21:01,635: clip_targets_to_zero: ['QObs(mm/d)']
+2024-01-24 20:21:01,636: static_attributes: ['elev_mean', 'slope_mean', 'area_gages2', 'frac_forest', 'lai_max', 'lai_diff', 'gvf_max', 'gvf_diff', 'soil_depth_pelletier', 'soil_depth_statsgo', 'soil_porosity', 'soil_conductivity', 'max_water_content', 'sand_frac', 'silt_frac', 'clay_frac', 'carbonate_rocks_frac', 'geol_permeability', 'p_mean', 'pet_mean', 'aridity', 'frac_snow', 'high_prec_freq', 'high_prec_dur', 'low_prec_freq', 'low_prec_dur']
+2024-01-24 20:21:01,637: number_of_basins: 91
+2024-01-24 20:21:01,638: run_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_202101
+2024-01-24 20:21:01,640: train_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_202101/train_data
+2024-01-24 20:21:01,641: img_log_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_202101/img_log
+2024-01-24 20:21:01,642: ### Device cuda:0 will be used for training
+2024-01-24 20:21:01,799: Loading basin data into xarray data set.
+2024-01-24 20:21:19,421: Create lookup table and convert to pytorch tensor
+2024-01-24 20:22:37,361: Epoch 1 average loss: avg_loss: 0.12486, avg_total_loss: 0.12486
+2024-01-24 20:23:47,910: Epoch 2 average loss: avg_loss: 0.09798, avg_total_loss: 0.09798
+2024-01-24 20:24:57,914: Epoch 3 average loss: avg_loss: 0.09278, avg_total_loss: 0.09278
+2024-01-24 20:26:24,455: Epoch 3 average validation loss: 0.07075 -- Median validation metrics: avg_loss: 0.07075, NSE: 0.80525
+2024-01-24 20:27:34,760: Epoch 4 average loss: avg_loss: 0.08828, avg_total_loss: 0.08828
+2024-01-24 20:28:45,311: Epoch 5 average loss: avg_loss: 0.08742, avg_total_loss: 0.08742
+2024-01-24 20:29:55,933: Epoch 6 average loss: avg_loss: 0.08791, avg_total_loss: 0.08791
+2024-01-24 20:30:59,975: Epoch 6 average validation loss: 0.06275 -- Median validation metrics: avg_loss: 0.06275, NSE: 0.81771
+2024-01-24 20:32:10,633: Epoch 7 average loss: avg_loss: 0.08583, avg_total_loss: 0.08583
+2024-01-24 20:33:21,234: Epoch 8 average loss: avg_loss: 0.08551, avg_total_loss: 0.08551
+2024-01-24 20:34:32,062: Epoch 9 average loss: avg_loss: 0.08459, avg_total_loss: 0.08459
+2024-01-24 20:35:36,133: Epoch 9 average validation loss: 0.06003 -- Median validation metrics: avg_loss: 0.06003, NSE: 0.82561
+2024-01-24 20:36:46,800: Epoch 10 average loss: avg_loss: 0.08326, avg_total_loss: 0.08326
+2024-01-24 20:37:56,942: Epoch 11 average loss: avg_loss: 0.08098, avg_total_loss: 0.08098
+2024-01-24 20:39:07,513: Epoch 12 average loss: avg_loss: 0.08215, avg_total_loss: 0.08215
+2024-01-24 20:40:11,622: Epoch 12 average validation loss: 0.06496 -- Median validation metrics: avg_loss: 0.06496, NSE: 0.83206
+2024-01-24 20:41:21,824: Epoch 13 average loss: avg_loss: 0.08218, avg_total_loss: 0.08218
+2024-01-24 20:42:32,442: Epoch 14 average loss: avg_loss: 0.08189, avg_total_loss: 0.08189
+2024-01-24 20:43:42,918: Epoch 15 average loss: avg_loss: 0.07992, avg_total_loss: 0.07992
+2024-01-24 20:44:47,060: Epoch 15 average validation loss: 0.06287 -- Median validation metrics: avg_loss: 0.06287, NSE: 0.80998
+2024-01-24 20:45:57,158: Epoch 16 average loss: avg_loss: 0.08079, avg_total_loss: 0.08079
+2024-01-24 20:47:07,647: Epoch 17 average loss: avg_loss: 0.07953, avg_total_loss: 0.07953
+2024-01-24 20:48:18,241: Epoch 18 average loss: avg_loss: 0.08073, avg_total_loss: 0.08073
+2024-01-24 20:49:22,364: Epoch 18 average validation loss: 0.06697 -- Median validation metrics: avg_loss: 0.06697, NSE: 0.76925
+2024-01-24 20:50:33,644: Epoch 19 average loss: avg_loss: 0.08133, avg_total_loss: 0.08133
+2024-01-24 21:07:13,218: Logging to /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_210713/output.log initialized.
+2024-01-24 21:07:13,219: ### Folder structure created at /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_210713
+2024-01-24 21:07:13,221: ### Run configurations for run_cudalstm
+2024-01-24 21:07:13,222: experiment_name: run_cudalstm
+2024-01-24 21:07:13,223: train_basin_file: basin_huc_17.txt
+2024-01-24 21:07:13,224: validation_basin_file: basin_huc_17.txt
+2024-01-24 21:07:13,225: test_basin_file: basin_huc_17.txt
+2024-01-24 21:07:13,227: train_start_date: 1980-01-01 00:00:00
+2024-01-24 21:07:13,228: train_end_date: 1999-12-31 00:00:00
+2024-01-24 21:07:13,229: validation_start_date: 2000-01-01 00:00:00
+2024-01-24 21:07:13,234: validation_end_date: 2004-12-31 00:00:00
+2024-01-24 21:07:13,235: test_start_date: 2005-01-01 00:00:00
+2024-01-24 21:07:13,236: test_end_date: 2009-12-31 00:00:00
+2024-01-24 21:07:13,237: device: cuda:0
+2024-01-24 21:07:13,239: validate_every: 3
+2024-01-24 21:07:13,240: validate_n_random_basins: 91
+2024-01-24 21:07:13,241: metrics: ['NSE']
+2024-01-24 21:07:13,242: model: cudalstm
+2024-01-24 21:07:13,243: head: regression
+2024-01-24 21:07:13,244: output_activation: linear
+2024-01-24 21:07:13,245: hidden_size: 20
+2024-01-24 21:07:13,247: initial_forget_bias: 3
+2024-01-24 21:07:13,248: mc_dropout: True
+2024-01-24 21:07:13,249: n_samples: 20
+2024-01-24 21:07:13,250: negative_sample_handling: clip
+2024-01-24 21:07:13,251: output_dropout: 0.4
+2024-01-24 21:07:13,252: optimizer: Adam
+2024-01-24 21:07:13,254: loss: MSE
+2024-01-24 21:07:13,255: learning_rate: {0: 0.002, 30: 0.002, 40: 0.001}
+2024-01-24 21:07:13,256: batch_size: 256
+2024-01-24 21:07:13,257: epochs: 50
+2024-01-24 21:07:13,258: clip_gradient_norm: 1
+2024-01-24 21:07:13,259: predict_last_n: 1
+2024-01-24 21:07:13,260: seq_length: 365
+2024-01-24 21:07:13,262: num_workers: 8
+2024-01-24 21:07:13,263: log_interval: 5
+2024-01-24 21:07:13,264: log_tensorboard: True
+2024-01-24 21:07:13,266: log_n_figures: 1
+2024-01-24 21:07:13,266: save_weights_every: 1
+2024-01-24 21:07:13,267: dataset: camels_us
+2024-01-24 21:07:13,269: data_dir: ../data/CAMELS_US
+2024-01-24 21:07:13,269: forcings: ['maurer', 'daymet', 'nldas']
+2024-01-24 21:07:13,271: dynamic_inputs: ['PRCP(mm/day)_nldas', 'PRCP(mm/day)_maurer', 'prcp(mm/day)_daymet', 'srad(W/m2)_daymet', 'tmax(C)_daymet', 'tmin(C)_daymet', 'vp(Pa)_daymet']
+2024-01-24 21:07:13,272: target_variables: ['QObs(mm/d)']
+2024-01-24 21:07:13,273: clip_targets_to_zero: ['QObs(mm/d)']
+2024-01-24 21:07:13,274: static_attributes: ['elev_mean', 'slope_mean', 'area_gages2', 'frac_forest', 'lai_max', 'lai_diff', 'gvf_max', 'gvf_diff', 'soil_depth_pelletier', 'soil_depth_statsgo', 'soil_porosity', 'soil_conductivity', 'max_water_content', 'sand_frac', 'silt_frac', 'clay_frac', 'carbonate_rocks_frac', 'geol_permeability', 'p_mean', 'pet_mean', 'aridity', 'frac_snow', 'high_prec_freq', 'high_prec_dur', 'low_prec_freq', 'low_prec_dur']
+2024-01-24 21:07:13,275: number_of_basins: 91
+2024-01-24 21:07:13,276: run_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_210713
+2024-01-24 21:07:13,277: train_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_210713/train_data
+2024-01-24 21:07:13,279: img_log_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_210713/img_log
+2024-01-24 21:07:13,280: ### Device cuda:0 will be used for training
+2024-01-24 21:07:13,443: Loading basin data into xarray data set.
+2024-01-24 21:07:30,981: Create lookup table and convert to pytorch tensor
+2024-01-24 21:08:48,837: Epoch 1 average loss: avg_loss: 0.14135, avg_total_loss: 0.14135
+2024-01-24 21:09:59,448: Epoch 2 average loss: avg_loss: 0.09446, avg_total_loss: 0.09446
+2024-01-24 21:11:09,734: Epoch 3 average loss: avg_loss: 0.08824, avg_total_loss: 0.08824
+2024-01-24 21:12:37,242: Epoch 3 average validation loss: 0.06645 -- Median validation metrics: avg_loss: 0.06645, NSE: 0.80900
+2024-01-24 21:13:47,055: Epoch 4 average loss: avg_loss: 0.08406, avg_total_loss: 0.08406
+2024-01-24 21:14:57,445: Epoch 5 average loss: avg_loss: 0.08224, avg_total_loss: 0.08224
+2024-01-24 21:16:07,866: Epoch 6 average loss: avg_loss: 0.08103, avg_total_loss: 0.08103
+2024-01-24 21:17:11,932: Epoch 6 average validation loss: 0.06402 -- Median validation metrics: avg_loss: 0.06402, NSE: 0.82839
+2024-01-24 21:18:22,322: Epoch 7 average loss: avg_loss: 0.08092, avg_total_loss: 0.08092
+2024-01-24 21:19:33,219: Epoch 8 average loss: avg_loss: 0.07841, avg_total_loss: 0.07841
+2024-01-24 21:20:43,363: Epoch 9 average loss: avg_loss: 0.07878, avg_total_loss: 0.07878
+2024-01-24 21:21:47,454: Epoch 9 average validation loss: 0.06110 -- Median validation metrics: avg_loss: 0.06110, NSE: 0.84617
+2024-01-24 21:22:58,056: Epoch 10 average loss: avg_loss: 0.07815, avg_total_loss: 0.07815
+2024-01-24 21:24:08,549: Epoch 11 average loss: avg_loss: 0.07698, avg_total_loss: 0.07698
+2024-01-24 21:25:19,042: Epoch 12 average loss: avg_loss: 0.07718, avg_total_loss: 0.07718
+2024-01-24 21:26:23,132: Epoch 12 average validation loss: 0.05485 -- Median validation metrics: avg_loss: 0.05485, NSE: 0.85921
+2024-01-24 21:27:33,440: Epoch 13 average loss: avg_loss: 0.07531, avg_total_loss: 0.07531
+2024-01-24 21:28:44,514: Epoch 14 average loss: avg_loss: 0.07616, avg_total_loss: 0.07616
+2024-01-24 21:29:54,850: Epoch 15 average loss: avg_loss: 0.07641, avg_total_loss: 0.07641
+2024-01-24 21:30:59,029: Epoch 15 average validation loss: 0.05540 -- Median validation metrics: avg_loss: 0.05540, NSE: 0.83454
+2024-01-24 21:32:08,629: Epoch 16 average loss: avg_loss: 0.07532, avg_total_loss: 0.07532
+2024-01-24 21:33:19,450: Epoch 17 average loss: avg_loss: 0.07355, avg_total_loss: 0.07355
+2024-01-24 21:34:30,023: Epoch 18 average loss: avg_loss: 0.07359, avg_total_loss: 0.07359
+2024-01-24 21:35:34,119: Epoch 18 average validation loss: 0.06000 -- Median validation metrics: avg_loss: 0.06000, NSE: 0.84724
+2024-01-24 21:36:44,454: Epoch 19 average loss: avg_loss: 0.07294, avg_total_loss: 0.07294
+2024-01-24 21:37:54,851: Epoch 20 average loss: avg_loss: 0.07444, avg_total_loss: 0.07444
+2024-01-24 21:39:05,420: Epoch 21 average loss: avg_loss: 0.07221, avg_total_loss: 0.07221
+2024-01-24 21:40:09,415: Epoch 21 average validation loss: 0.05182 -- Median validation metrics: avg_loss: 0.05182, NSE: 0.85073
+2024-01-24 21:41:23,854: Epoch 22 average loss: avg_loss: 0.07316, avg_total_loss: 0.07316
+2024-01-24 21:42:38,138: Epoch 23 average loss: avg_loss: 0.07231, avg_total_loss: 0.07231
+2024-01-24 21:43:51,338: Epoch 24 average loss: avg_loss: 0.07322, avg_total_loss: 0.07322
+2024-01-24 21:44:56,241: Epoch 24 average validation loss: 0.05533 -- Median validation metrics: avg_loss: 0.05533, NSE: 0.84109
+2024-01-24 21:46:06,916: Epoch 25 average loss: avg_loss: 0.07219, avg_total_loss: 0.07219
+2024-01-24 21:47:17,119: Epoch 26 average loss: avg_loss: 0.07304, avg_total_loss: 0.07304
+2024-01-24 21:48:27,320: Epoch 27 average loss: avg_loss: 0.07227, avg_total_loss: 0.07227
+2024-01-24 21:49:31,315: Epoch 27 average validation loss: 0.05800 -- Median validation metrics: avg_loss: 0.05800, NSE: 0.83683
+2024-01-24 21:50:41,713: Epoch 28 average loss: avg_loss: 0.07316, avg_total_loss: 0.07316
+2024-01-24 21:51:52,424: Epoch 29 average loss: avg_loss: 0.07245, avg_total_loss: 0.07245
+2024-01-24 21:51:52,433: Setting learning rate to 0.002
+2024-01-24 21:53:02,899: Epoch 30 average loss: avg_loss: 0.07161, avg_total_loss: 0.07161
+2024-01-24 21:54:07,126: Epoch 30 average validation loss: 0.05965 -- Median validation metrics: avg_loss: 0.05965, NSE: 0.84288
+2024-01-24 21:55:17,613: Epoch 31 average loss: avg_loss: 0.07058, avg_total_loss: 0.07058
+2024-01-24 21:56:28,615: Epoch 32 average loss: avg_loss: 0.07159, avg_total_loss: 0.07159
+2024-01-24 21:57:38,854: Epoch 33 average loss: avg_loss: 0.07137, avg_total_loss: 0.07137
+2024-01-24 21:58:42,981: Epoch 33 average validation loss: 0.05454 -- Median validation metrics: avg_loss: 0.05454, NSE: 0.85383
+2024-01-24 21:59:53,766: Epoch 34 average loss: avg_loss: 0.07227, avg_total_loss: 0.07227
+2024-01-24 22:01:04,812: Epoch 35 average loss: avg_loss: 0.07138, avg_total_loss: 0.07138
+2024-01-24 22:02:15,710: Epoch 36 average loss: avg_loss: 0.06989, avg_total_loss: 0.06989
+2024-01-24 22:03:19,684: Epoch 36 average validation loss: 0.05606 -- Median validation metrics: avg_loss: 0.05606, NSE: 0.85433
+2024-01-24 22:04:30,110: Epoch 37 average loss: avg_loss: 0.07098, avg_total_loss: 0.07098
+2024-01-24 22:05:40,664: Epoch 38 average loss: avg_loss: 0.07097, avg_total_loss: 0.07097
+2024-01-24 22:06:50,810: Epoch 39 average loss: avg_loss: 0.07061, avg_total_loss: 0.07061
+2024-01-24 22:07:54,823: Epoch 39 average validation loss: 0.05890 -- Median validation metrics: avg_loss: 0.05890, NSE: 0.84170
+2024-01-24 22:07:54,824: Setting learning rate to 0.001
+2024-01-24 22:09:05,815: Epoch 40 average loss: avg_loss: 0.06716, avg_total_loss: 0.06716
+2024-01-24 22:10:16,611: Epoch 41 average loss: avg_loss: 0.06708, avg_total_loss: 0.06708
+2024-01-24 22:11:26,857: Epoch 42 average loss: avg_loss: 0.06799, avg_total_loss: 0.06799
+2024-01-24 22:12:30,936: Epoch 42 average validation loss: 0.05319 -- Median validation metrics: avg_loss: 0.05319, NSE: 0.85888
+2024-01-24 22:13:41,712: Epoch 43 average loss: avg_loss: 0.06690, avg_total_loss: 0.06690
+2024-01-24 22:14:52,616: Epoch 44 average loss: avg_loss: 0.06630, avg_total_loss: 0.06630
+2024-01-24 22:16:02,915: Epoch 45 average loss: avg_loss: 0.06680, avg_total_loss: 0.06680
+2024-01-24 22:17:08,115: Epoch 45 average validation loss: 0.05192 -- Median validation metrics: avg_loss: 0.05192, NSE: 0.85102
+2024-01-24 22:18:18,413: Epoch 46 average loss: avg_loss: 0.06662, avg_total_loss: 0.06662
+2024-01-24 22:19:28,764: Epoch 47 average loss: avg_loss: 0.06641, avg_total_loss: 0.06641
+2024-01-24 22:20:39,343: Epoch 48 average loss: avg_loss: 0.06714, avg_total_loss: 0.06714
+2024-01-24 22:21:43,311: Epoch 48 average validation loss: 0.05087 -- Median validation metrics: avg_loss: 0.05087, NSE: 0.85284
+2024-01-24 22:22:53,762: Epoch 49 average loss: avg_loss: 0.06657, avg_total_loss: 0.06657
+2024-01-24 22:24:04,531: Epoch 50 average loss: avg_loss: 0.06660, avg_total_loss: 0.06660
+2024-01-25 06:56:30,115: Logging to /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2501_065630/output.log initialized.
+2024-01-25 06:56:30,117: ### Folder structure created at /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2501_065630
+2024-01-25 06:56:30,118: ### Run configurations for run_cudalstm
+2024-01-25 06:56:30,119: experiment_name: run_cudalstm
+2024-01-25 06:56:30,121: train_basin_file: basin_huc_17.txt
+2024-01-25 06:56:30,122: validation_basin_file: basin_huc_17.txt
+2024-01-25 06:56:30,123: test_basin_file: basin_huc_17.txt
+2024-01-25 06:56:30,124: train_start_date: 1980-01-01 00:00:00
+2024-01-25 06:56:30,128: train_end_date: 1999-12-31 00:00:00
+2024-01-25 06:56:30,130: validation_start_date: 2000-01-01 00:00:00
+2024-01-25 06:56:30,131: validation_end_date: 2004-12-31 00:00:00
+2024-01-25 06:56:30,132: test_start_date: 2005-01-01 00:00:00
+2024-01-25 06:56:30,133: test_end_date: 2009-12-31 00:00:00
+2024-01-25 06:56:30,134: device: cuda:0
+2024-01-25 06:56:30,136: validate_every: 3
+2024-01-25 06:56:30,137: validate_n_random_basins: 91
+2024-01-25 06:56:30,138: metrics: ['NSE']
+2024-01-25 06:56:30,139: model: cudalstm
+2024-01-25 06:56:30,140: head: umal
+2024-01-25 06:56:30,141: output_activation: linear
+2024-01-25 06:56:30,142: hidden_size: 20
+2024-01-25 06:56:30,144: n_taus: 1
+2024-01-25 06:56:30,145: umal_extend_batch: True
+2024-01-25 06:56:30,146: tau_down: 0.1
+2024-01-25 06:56:30,147: tau_up: 0.9
+2024-01-25 06:56:30,148: n_samples: 20
+2024-01-25 06:56:30,149: negative_sample_handling: clip
+2024-01-25 06:56:30,150: mc_dropout: False
+2024-01-25 06:56:30,151: output_dropout: 0.4
+2024-01-25 06:56:30,153: optimizer: Adam
+2024-01-25 06:56:30,154: loss: UMALLoss
+2024-01-25 06:56:30,155: learning_rate: {0: 0.005, 30: 0.001, 40: 0.001}
+2024-01-25 06:56:30,156: batch_size: 256
+2024-01-25 06:56:30,157: epochs: 50
+2024-01-25 06:56:30,158: clip_gradient_norm: 1
+2024-01-25 06:56:30,160: predict_last_n: 1
+2024-01-25 06:56:30,161: seq_length: 365
+2024-01-25 06:56:30,162: num_workers: 8
+2024-01-25 06:56:30,163: log_interval: 5
+2024-01-25 06:56:30,164: log_tensorboard: True
+2024-01-25 06:56:30,165: log_n_figures: 1
+2024-01-25 06:56:30,166: save_weights_every: 1
+2024-01-25 06:56:30,167: dataset: camels_us
+2024-01-25 06:56:30,168: data_dir: ../data/CAMELS_US
+2024-01-25 06:56:30,169: forcings: ['maurer', 'daymet', 'nldas']
+2024-01-25 06:56:30,170: dynamic_inputs: ['PRCP(mm/day)_nldas', 'PRCP(mm/day)_maurer', 'prcp(mm/day)_daymet', 'srad(W/m2)_daymet', 'tmax(C)_daymet', 'tmin(C)_daymet', 'vp(Pa)_daymet']
+2024-01-25 06:56:30,171: target_variables: ['QObs(mm/d)']
+2024-01-25 06:56:30,173: clip_targets_to_zero: ['QObs(mm/d)']
+2024-01-25 06:56:30,174: static_attributes: ['elev_mean', 'slope_mean', 'area_gages2', 'frac_forest', 'lai_max', 'lai_diff', 'gvf_max', 'gvf_diff', 'soil_depth_pelletier', 'soil_depth_statsgo', 'soil_porosity', 'soil_conductivity', 'max_water_content', 'sand_frac', 'silt_frac', 'clay_frac', 'carbonate_rocks_frac', 'geol_permeability', 'p_mean', 'pet_mean', 'aridity', 'frac_snow', 'high_prec_freq', 'high_prec_dur', 'low_prec_freq', 'low_prec_dur']
+2024-01-25 06:56:30,175: number_of_basins: 91
+2024-01-25 06:56:30,176: run_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2501_065630
+2024-01-25 06:56:30,177: train_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2501_065630/train_data
+2024-01-25 06:56:30,178: img_log_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2501_065630/img_log
+2024-01-25 06:56:30,180: ### Device cuda:0 will be used for training
+2024-01-25 06:56:30,353: Loading basin data into xarray data set.
+2024-01-25 06:56:48,342: Create lookup table and convert to pytorch tensor
+2024-01-25 06:58:31,858: Epoch 1 average loss: avg_loss: -0.46840, avg_total_loss: -0.46840
+2024-01-25 07:00:07,933: Epoch 2 average loss: avg_loss: -0.80963, avg_total_loss: -0.80963
+2024-01-25 07:01:43,930: Epoch 3 average loss: avg_loss: -0.91587, avg_total_loss: -0.91587
+2024-01-25 07:18:17,556: Epoch 3 average validation loss: 0.12779 -- Median validation metrics: avg_loss: 0.12779, NSE: 0.51701
+2024-01-25 07:19:53,630: Epoch 4 average loss: avg_loss: -0.96078, avg_total_loss: -0.96078
+2024-01-25 07:21:30,129: Epoch 5 average loss: avg_loss: -1.00764, avg_total_loss: -1.00764
+2024-01-25 07:23:06,811: Epoch 6 average loss: avg_loss: -1.03210, avg_total_loss: -1.03210
+2024-01-25 07:39:08,016: Epoch 6 average validation loss: 0.20742 -- Median validation metrics: avg_loss: 0.20742, NSE: 0.53025
+2024-01-25 07:40:45,050: Epoch 7 average loss: avg_loss: -1.04163, avg_total_loss: -1.04163
+2024-01-25 07:42:21,365: Epoch 8 average loss: avg_loss: -1.06571, avg_total_loss: -1.06571
+2024-01-25 07:43:57,913: Epoch 9 average loss: avg_loss: -1.07217, avg_total_loss: -1.07217
+2024-01-25 08:00:08,640: Epoch 9 average validation loss: 0.53336 -- Median validation metrics: avg_loss: 0.53336, NSE: 0.48848
+2024-01-25 08:01:45,512: Epoch 10 average loss: avg_loss: -1.08648, avg_total_loss: -1.08648
+2024-01-25 08:03:22,313: Epoch 11 average loss: avg_loss: -1.10409, avg_total_loss: -1.10409
+2024-01-25 08:04:59,510: Epoch 12 average loss: avg_loss: -1.10622, avg_total_loss: -1.10622
+2024-01-25 08:21:01,734: Epoch 12 average validation loss: 0.69215 -- Median validation metrics: avg_loss: 0.69215, NSE: 0.40730
+2024-01-25 08:22:37,830: Epoch 13 average loss: avg_loss: -1.11699, avg_total_loss: -1.11699
+2024-01-25 08:24:14,357: Epoch 14 average loss: avg_loss: -1.12223, avg_total_loss: -1.12223
+2024-01-25 08:25:51,459: Epoch 15 average loss: avg_loss: -1.12367, avg_total_loss: -1.12367
+2024-01-25 08:41:55,645: Epoch 15 average validation loss: 0.69877 -- Median validation metrics: avg_loss: 0.69877, NSE: 0.43643
+2024-01-25 08:43:31,723: Epoch 16 average loss: avg_loss: -1.12101, avg_total_loss: -1.12101
+2024-01-25 08:45:08,326: Epoch 17 average loss: avg_loss: -1.13133, avg_total_loss: -1.13133
+2024-01-25 08:46:45,124: Epoch 18 average loss: avg_loss: -1.14585, avg_total_loss: -1.14585
+2024-01-25 08:58:03,297: Logging to /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2501_085803/output.log initialized.
+2024-01-25 08:58:03,299: ### Folder structure created at /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2501_085803
+2024-01-25 08:58:03,300: ### Run configurations for run_cudalstm
+2024-01-25 08:58:03,301: experiment_name: run_cudalstm
+2024-01-25 08:58:03,302: train_basin_file: basin_huc_17.txt
+2024-01-25 08:58:03,304: validation_basin_file: basin_huc_17.txt
+2024-01-25 08:58:03,305: test_basin_file: basin_huc_17.txt
+2024-01-25 08:58:03,306: train_start_date: 1980-01-01 00:00:00
+2024-01-25 08:58:03,307: train_end_date: 1999-12-31 00:00:00
+2024-01-25 08:58:03,309: validation_start_date: 2000-01-01 00:00:00
+2024-01-25 08:58:03,311: validation_end_date: 2004-12-31 00:00:00
+2024-01-25 08:58:03,313: test_start_date: 2005-01-01 00:00:00
+2024-01-25 08:58:03,314: test_end_date: 2009-12-31 00:00:00
+2024-01-25 08:58:03,315: device: cuda:0
+2024-01-25 08:58:03,316: validate_every: 3
+2024-01-25 08:58:03,317: validate_n_random_basins: 91
+2024-01-25 08:58:03,318: metrics: ['NSE']
+2024-01-25 08:58:03,319: model: cudalstm
+2024-01-25 08:58:03,320: head: umal
+2024-01-25 08:58:03,321: output_activation: linear
+2024-01-25 08:58:03,323: hidden_size: 20
+2024-01-25 08:58:03,323: n_taus: 1
+2024-01-25 08:58:03,325: umal_extend_batch: True
+2024-01-25 08:58:03,326: tau_down: 0.1
+2024-01-25 08:58:03,327: tau_up: 0.9
+2024-01-25 08:58:03,328: n_samples: 20
+2024-01-25 08:58:03,329: negative_sample_handling: clip
+2024-01-25 08:58:03,330: mc_dropout: False
+2024-01-25 08:58:03,331: output_dropout: 0.4
+2024-01-25 08:58:03,332: optimizer: Adam
+2024-01-25 08:58:03,334: loss: UMALLoss
+2024-01-25 08:58:03,335: learning_rate: {0: 0.005, 30: 0.001, 40: 0.001}
+2024-01-25 08:58:03,336: batch_size: 256
+2024-01-25 08:58:03,337: epochs: 50
+2024-01-25 08:58:03,338: clip_gradient_norm: 1
+2024-01-25 08:58:03,339: predict_last_n: 1
+2024-01-25 08:58:03,340: seq_length: 365
+2024-01-25 08:58:03,342: num_workers: 8
+2024-01-25 08:58:03,342: log_interval: 5
+2024-01-25 08:58:03,343: log_tensorboard: True
+2024-01-25 08:58:03,345: log_n_figures: 1
+2024-01-25 08:58:03,346: save_weights_every: 1
+2024-01-25 08:58:03,347: dataset: camels_us
+2024-01-25 08:58:03,348: data_dir: ../data/CAMELS_US
+2024-01-25 08:58:03,349: forcings: ['maurer', 'daymet', 'nldas']
+2024-01-25 08:58:03,350: dynamic_inputs: ['PRCP(mm/day)_nldas', 'PRCP(mm/day)_maurer', 'prcp(mm/day)_daymet', 'srad(W/m2)_daymet', 'tmax(C)_daymet', 'tmin(C)_daymet', 'vp(Pa)_daymet']
+2024-01-25 08:58:03,351: target_variables: ['QObs(mm/d)']
+2024-01-25 08:58:03,352: clip_targets_to_zero: ['QObs(mm/d)']
+2024-01-25 08:58:03,353: static_attributes: ['elev_mean', 'slope_mean', 'area_gages2', 'frac_forest', 'lai_max', 'lai_diff', 'gvf_max', 'gvf_diff', 'soil_depth_pelletier', 'soil_depth_statsgo', 'soil_porosity', 'soil_conductivity', 'max_water_content', 'sand_frac', 'silt_frac', 'clay_frac', 'carbonate_rocks_frac', 'geol_permeability', 'p_mean', 'pet_mean', 'aridity', 'frac_snow', 'high_prec_freq', 'high_prec_dur', 'low_prec_freq', 'low_prec_dur']
+2024-01-25 08:58:03,354: number_of_basins: 91
+2024-01-25 08:58:03,355: run_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2501_085803
+2024-01-25 08:58:03,356: train_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2501_085803/train_data
+2024-01-25 08:58:03,358: img_log_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2501_085803/img_log
+2024-01-25 08:58:03,359: ### Device cuda:0 will be used for training
+2024-01-25 08:58:03,516: Loading basin data into xarray data set.
+2024-01-25 08:58:21,706: Create lookup table and convert to pytorch tensor
+2024-01-25 09:00:04,717: Epoch 1 average loss: avg_loss: -0.46880, avg_total_loss: -0.46880
+2024-01-25 09:01:41,023: Epoch 2 average loss: avg_loss: -0.78856, avg_total_loss: -0.78856
+2024-01-25 09:03:16,649: Epoch 3 average loss: avg_loss: -0.88835, avg_total_loss: -0.88835
+2024-01-25 09:19:41,172: Epoch 3 average validation loss: -0.04321 -- Median validation metrics: avg_loss: -0.04321, NSE: 0.63024
+2024-01-25 09:21:17,658: Epoch 4 average loss: avg_loss: -0.94129, avg_total_loss: -0.94129
+2024-01-25 09:22:54,310: Epoch 5 average loss: avg_loss: -0.98476, avg_total_loss: -0.98476
+2024-01-25 09:24:31,010: Epoch 6 average loss: avg_loss: -1.02212, avg_total_loss: -1.02212
+2024-01-25 09:40:32,240: Epoch 6 average validation loss: 0.17525 -- Median validation metrics: avg_loss: 0.17525, NSE: 0.50489
+2024-01-25 09:42:09,312: Epoch 7 average loss: avg_loss: -1.04792, avg_total_loss: -1.04792
+2024-01-25 09:43:45,957: Epoch 8 average loss: avg_loss: -1.06764, avg_total_loss: -1.06764
+2024-01-25 09:45:22,729: Epoch 9 average loss: avg_loss: -1.08714, avg_total_loss: -1.08714
