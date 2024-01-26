@@ -22,7 +22,7 @@ forcings:
 - nldas
 head: regression
 hidden_size: 20
-img_log_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_210713/img_log
+img_log_dir: run_cudalstm_mcd_model/img_log
 initial_forget_bias: 3
 learning_rate:
   0: 0.002
@@ -45,7 +45,7 @@ output_activation: linear
 output_dropout: 0.4
 package_version: 1.9.1
 predict_last_n: 1
-run_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_210713
+run_dir: run_cudalstm_mcd_model/
 save_weights_every: 1
 seed: 895927
 seq_length: 365
@@ -78,11 +78,11 @@ static_attributes:
 - low_prec_dur
 target_variables:
 - QObs(mm/d)
-test_basin_file: basin_huc_17.txt
+test_basin_file: basin_huc_18.txt
 test_end_date: 31/12/2009
 test_start_date: 01/01/2005
 train_basin_file: basin_huc_17.txt
-train_dir: /workspace/hbv-runoff/Project-Run/runs/run_cudalstm_2401_210713/train_data
+train_dir: run_cudalstm_mcd_model/train_data
 train_end_date: 31/12/1999
 train_start_date: 01/01/1980
 validate_every: 3

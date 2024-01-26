@@ -22,7 +22,7 @@ def get_available_metrics() -> List[str]:
     """
     metrics = [
         "NSE", "MSE", "RMSE", "KGE", "Alpha-NSE", "Pearson-r", "Beta-KGE", "Beta-NSE", "FHV", "FMS", "FLV",
-        "Peak-Timing", "Missed-Peaks", "Peak-MAPE"
+        "Peak-Timing", "Missed-Peaks", "Peak-MAPE", "PICP", "PINAW"
     ]
     return metrics
 
@@ -49,33 +49,95 @@ def _get_fdc(da: DataArray) -> np.ndarray:
     return da.sortby(da, ascending=False).values
 
 
-def PICP(y_test, sim):
-    lower = np.zeros(qsim.shape[0])
-    upper = np.zeros(qsim.shape[0])
-    for i in range(qsim.shape[0]):
-        lower[i] = qsim.isel(date=i).min()
-        upper[i] = qsim.isel(date=i).max()
+def calculate_prediction_intervals(predictions, percentile=95):
+    """
+    Calculate prediction intervals from multiple predictions using NumPy.
+
+    Parameters:
+    - predictions: Array of predictions.
+    - percentile: The confidence level for the interval.
+
+    Returns:
+    - lower_bound: Lower bounds of prediction intervals.
+    - upper_bound: Upper bounds of prediction intervals.
+    """
+    lower_percentile = (100 - percentile) / 2
+    upper_percentile = 100 - lower_percentile
+
+    lower_bound = np.percentile(predictions, lower_percentile, axis=0)
+    upper_bound = np.percentile(predictions, upper_percentile, axis=0)
+
+    return lower_bound, upper_bound
+
+def calculate_picp(y_true, lower_bound, upper_bound):
+    """
+    Calculate the Prediction Interval Coverage Probability (PICP) using NumPy.
+
+    Parameters:
+    - y_true: Actual values.
+    - lower_bound: Lower bound of the prediction intervals.
+    - upper_bound: Upper bound of the prediction intervals.
+
+    Returns:
+    - PICP value.
+    """
+    coverage = np.where((y_true >= lower_bound) & (y_true <= upper_bound), 1, 0)
+    picp = np.mean(coverage)
+    return picp * 100
+
+
+def calculate_pinaw(y_true, lower_bound, upper_bound):
+    """
+    Calculate the Prediction Interval Normalized Average Width (PINAW) using NumPy.
+
+    Parameters:
+    - y_true: Actual values.
+    - lower_bound: Lower bound of the prediction intervals.
+    - upper_bound: Upper bound of the prediction intervals.
+
+    Returns:
+    - pinaw value.
+    """
+    interval_width = upper_bound - lower_bound
+    normalized_width = interval_width / np.std(y_true)
+    pinaw = np.mean(normalized_width)
+    return pinaw
+
+
+def calculate_all_metrics_prob(obs: DataArray,
+                          sim: DataArray,
+                          percentile: int = 95,
+                          resolution: str = "1D",
+                          datetime_coord: str = None) -> Dict[str, float]:
+    """Calculate all metrics with default values.
     
-    in_the_range = np.sum(
-        (y_test >= lower) & (y_test <= upper)
-    )
-    #print(in_the_range)
-    coverage = in_the_range / np.prod(y_test.shape) * 100
-
-    return coverage
-
-def PINAW(y_test, sim):
-    lower = np.zeros(qsim.shape[0])
-    upper = np.zeros(qsim.shape[0])
-    for i in range(qsim.shape[0]):
-        lower[i] = qsim.isel(date=i).min()
-        upper[i] = qsim.isel(date=i).max()
+    Parameters
+    ----------
+    obs : DataArray
+        Observed time series.
+    sim : DataArray
+        Simulated time series.
+    percentile: The confidence level for the interval
+    resolution : str, optional
+        Temporal resolution of the time series in pandas format, e.g. '1D' for daily and '1H' for hourly.
+    datetime_coord : str, optional
+        Datetime coordinate in the passed DataArray. Tried to infer automatically if not specified.
         
-    avg_length = np.mean(abs(upper - lower))
-    R = y_test.max() - y_test.min()
-    norm_avg_length = avg_length / R
+    Returns
+    -------
+    Dict[str, float]
+        Dictionary with keys corresponding to metric name and values corresponding to metric values.
+    """
+    
+    # Prediction Intervals
+    lower_bound, upper_bound = calculate_prediction_intervals(sim, percentile) 
+    
+    results = {
+        "PINAW": calculate_pinaw(obs, lower_bound, upper_bound),
+        "PICP": calculate_picp(obs, lower_bound, upper_bound),
+    }
 
-    return norm_avg_length
+    return results
 
 def nse(obs: DataArray, sim: DataArray) -> float:
     r"""Calculate Nash-Sutcliffe Efficiency [#]_
