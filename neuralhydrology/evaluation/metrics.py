@@ -139,6 +139,17 @@ def calculate_all_metrics_prob(obs: DataArray,
 
     return results
 
+def crps(sim, y_test):
+    """Compute Continuous Ranked Probability Score (CRPS) for all samples."""
+    num_samples = sim.shape[0]
+    repeated_y = np.tile(y_test, (num_samples, 1, 1, 1))
+    part_1 = np.abs(sim - repeated_y).mean(axis=0)
+    tot_sum = 0.0
+    for elem in range(num_samples):
+        repeated_y = np.tile(sim[elem], (num_samples, 1, 1, 1))
+        tot_sum += np.abs(sim - repeated_y).mean(axis=0)
+    return (part_1 - 0.5 * tot_sum.mean(axis=0) / num_samples).mean(axis=0)
+
 def nse(obs: DataArray, sim: DataArray) -> float:
     r"""Calculate Nash-Sutcliffe Efficiency [#]_
     

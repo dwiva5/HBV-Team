@@ -1,8 +1,9 @@
-# Welcome to our repository!
+# Welcome to our Rainfall-Runoff repository!
 
 This is a Gitlab repository for the course CEGM2003 Data Science and Artificial Intelligence for Engineers, created by the HBV group with members; 
-Dwiva Anbiya Taruna (5849578), Konstantina Bourazani (5728347), Hang Long (5743702) and Thomas Poort (4715500). As a forked repository from 
-Neuralhydrology gitlab was used for this project the original README file of that repository is included at the end of this README as an appendix.
+Dwiva Anbiya Taruna (5849578), Konstantina Bourazani (5728347), Hang Long (5743702) and Thomas Poort (4715500). The project focuses on rainfall-runoff 
+modeling using LSTM (Long Short-Term Memory) models and aims to address the lack of uncertainty estimations in hydrological predictions.
+
 
 ![#](docs/source/_static/img/DSAIE_logo.png)
 
@@ -34,31 +35,51 @@ to assess whether the trained model, trained by data from HUC 17, could also mak
 
 ## Where can the used files be found
 
-- Data:
-The data used for the proejct can be found under the data folder. In this folder CAMELSUS data can be found which
-consists of three main datasets; the basin_mean_forcing containing all the meteorological time series data, usgs_streamflow
-containing the streamflow data and camels_attribute_v2.0 that extracts all the basin attributes.
-This data was imported for both HUC 17 and HUC 18.
+#### Data:
 
-- Models: 
-Under the neuralhydrology folder, there is a subfolder called modelzoo. This folder contains a cudalstm.py file that has the coded
-LSTM model stored there as well as a head.py file which contains the coding for the MCD, GMM, UMAL and CMAL.
+- Folder: 'data'
 
-- Notebooks:
-The notebooks that were used to actually use the data and models are stored in the Project-Run file. 
+    The data used for the proejct can be found under the data folder. In this folder CAMELSUS data can be found which
+    consists of three main datasets; the basin_mean_forcing containing all the meteorological time series data, usgs_streamflow
+    containing the streamflow data and camels_attribute_v2.0 that extracts all the basin attributes.
+    This data was imported for both HUC 17 and HUC 18.
 
-- Evaluation Metrics:
-Lastly, the introduced evaluation metrics such as the PICP and PINAW can be found under neuralhydrology/evaluation/metrics.py in which all
-the available metrics are stored.
+#### Models: 
+
+- Folder: 'neuralhydrology/modelzoo'
+
+    Under the neuralhydrology folder, there is a subfolder called modelzoo. This folder contains a cudalstm.py file that has the coded
+    LSTM model stored there as well as a head.py file which contains the coding for the MCD, GMM, UMAL and CMAL.
+
+#### Notebooks:
+
+- Folder: 'Project-Run'
+
+    The notebooks that were used to actually use the data and models are stored in the Project-Run file. 
+
+#### Evaluation Metrics:
+
+- Folder: 'neuralhydrology/evaluation/metrics.py'
+
+    Lastly, the introduced evaluation metrics such as the PICP and PINAW can be found under neuralhydrology/evaluation/metrics.py in which all
+    the available metrics are stored.
 
 
+## Contributors
 
- 
+The HBV group members and their contributions are:
 
+- Dwiva Anbiya Taruna
+- Konstantina Bourazani
+- Hang Long
+- Thomas Poort
 
+The detailed work plan is available in the project documentation. 
 
+## Original Repository
 
-## Appendix
+As a forked repository from Neuralhydrology gitlab was used for this project the original README file of that repository is included at the end
+of this README as an appendix.
 
 ![#](docs/source/_static/img/neural-hyd-logo-black.png)
 
