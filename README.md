@@ -60,6 +60,8 @@ to assess whether the trained model, trained by data from HUC 17, could also mak
 - Folder: [Notebook](../Project-Run)
 
     The notebooks that were used to actually use the data and models are stored in the Project-Run file. They serve as the project documentation in which every step taken during the project is showed and explained.
+    
+    Apart from the notebook file the files called 'run' are the results for different model runs we performed. These are imported into the notebook and evaluated in there.
 
 #### Evaluation Metrics:
 
