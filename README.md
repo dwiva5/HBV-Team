@@ -1,11 +1,12 @@
 # Welcome to our Rainfall-Runoff repository!
 
-This is a Gitlab repository for the course CEGM2003 Data Science and Artificial Intelligence for Engineers, created by the HBV group with members; 
-Dwiva Anbiya Taruna (5849578), Konstantina Bourazani (5728347), Hang Long (5743702) and Thomas Poort (4715500). The project focuses on rainfall-runoff 
-modeling using LSTM (Long Short-Term Memory) models and aims to address the lack of uncertainty estimations in hydrological predictions.
+This is a Gitlab repository for the course CEGM2003 Data Science and Artificial Intelligence for Engineers, created by the HBV group.
+
+The project focuses on rainfall-runoff modeling using a LSTM (Long Short-Term Memory) model and aims to address the lack of uncertainty estimations in 
+hydrological predictions.
 
 
-![#](docs/source/_static/img/DSAIE_logo.png)
+![#](docs/source/_static/img/rainfall_runoff.jpg)
 
 The README is structured as follows:
 
@@ -22,13 +23,11 @@ the issue.
 
 For this reason a LSTM (Long Short-Term Memory) model was trained based on imported CAMELS data for the United States, specifically for Hydrological Unit 17 
  (HUC 17) which has data for basins in the North-West upper corner of the United States (namely the states Washington, Oregon).
-As the LSTM model itself only returns deterministic results (one discharge prediction per timestep), four different methods were used to obtain
-uncertainty estimation; Monte-Carlo Dropout (MCD), Gaussian Mixture Density Network (GMM), Uncountable Mixture of Asymmetric Laplacians (UMAL) and Countable 
-Mixture of Asymmetric Laplacians (CMAL). Based on the results of these methods uncertainty intervals were created and 
-these were evaluated by newly introduced evaluation metrics, the PICP (Prediction Interval Coverage Probability) and PINAW (Prediction Interval Normalized 
-Average Width). By computing the uncertainty interval of the methods we hope to bridge the gap in knowledge that currently exists due to the fact that
-only deterministic results are predicted. Furthermore, by evaluating these uncertainty estimations and creating the evaluation metrics we try
-to estimate what indeed is the best way to model rainfall runoff.
+As the LSTM model itself only returns deterministic results (one discharge prediction per timestep), the Monte Carlo Dropout method was used to obtain
+an uncertainty estimation. Based on the results of this methods uncertainty intervals were created and these were evaluated by newly introduced evaluation 
+metrics, the PICP (Prediction Interval Coverage Probability) and PINAW (Prediction Interval Normalized Average Width). By computing the uncertainty interval 
+of the methods we hope to bridge the gap in knowledge that currently exists due to the fact that only deterministic results are predicted. Furthermore, by 
+evaluating these uncertainty estimations and creating the evaluation metrics we try to estimate what indeed is the best way to model rainfall runoff.
 
 Additionally, the result of the ensemble of the predictions was compared to just the deterministic results of the LSTM. And Transfer Learning was used as well
 to assess whether the trained model, trained by data from HUC 17, could also make accurate prediction for basins from another HUC.
@@ -40,16 +39,20 @@ to assess whether the trained model, trained by data from HUC 17, could also mak
 - Folder: 'data'
 
     The data used for the proejct can be found under the data folder. In this folder CAMELSUS data can be found which
-    consists of three main datasets; the basin_mean_forcing containing all the meteorological time series data, usgs_streamflow
-    containing the streamflow data and camels_attribute_v2.0 that extracts all the basin attributes.
+    consists of three main datasets; 
+    - the basin_mean_forcing containing all the meteorological time series data
+    - usgs_streamflow containing the streamflow data
+    - camels_attribute_v2.0 that extracts all the basin attributes.
+
     This data was imported for both HUC 17 and HUC 18.
 
 #### Models: 
 
-- Folder: 'neuralhydrology/modelzoo'
+- Folder: [Models](../neuralhydrology/modelzoo/)
+
 
     Under the neuralhydrology folder, there is a subfolder called modelzoo. This folder contains a cudalstm.py file that has the coded
-    LSTM model stored there as well as a head.py file which contains the coding for the MCD, GMM, UMAL and CMAL.
+    LSTM model stored there as well as a head.py file which contains the coding for the MCD.
 
 #### Notebooks:
 
@@ -59,7 +62,9 @@ to assess whether the trained model, trained by data from HUC 17, could also mak
 
 #### Evaluation Metrics:
 
-- Folder: 'neuralhydrology/evaluation/metrics.py'
+- Folder: [Evaluation Metrics](../neuralhydrology/evaluation/metrics.py)
+
+
 
     Lastly, the introduced evaluation metrics such as the PICP and PINAW can be found under neuralhydrology/evaluation/metrics.py in which all
     the available metrics are stored.
@@ -69,10 +74,10 @@ to assess whether the trained model, trained by data from HUC 17, could also mak
 
 The HBV group members and their contributions are:
 
-- Dwiva Anbiya Taruna
-- Konstantina Bourazani
-- Hang Long
-- Thomas Poort
+- Dwiva Anbiya Taruna   (5849578)
+- Konstantina Bourazani (5728347)
+- Hang Long             (5743702)
+- Thomas Poort          (4715500)
 
 The detailed work plan is available in the project documentation. 
 
