@@ -36,7 +36,8 @@ to assess whether the trained model, trained by data from HUC 17, could also mak
 
 #### Data:
 
-- Folder: 'data'
+- Folder: [Data](../data/)
+
 
     The data used for the proejct can be found under the data folder. In this folder CAMELSUS data can be found which
     consists of three main datasets; 
@@ -56,7 +57,7 @@ to assess whether the trained model, trained by data from HUC 17, could also mak
 
 #### Notebooks:
 
-- Folder: 'Project-Run'
+- Folder: [Notebook](../Project-Run)
 
     The notebooks that were used to actually use the data and models are stored in the Project-Run file. 
 
