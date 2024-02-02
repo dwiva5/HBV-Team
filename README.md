@@ -39,7 +39,7 @@ to assess whether the trained model, trained by data from HUC 17, could also mak
 - Folder: [Data](../data/)
 
 
-    The data used for the proejct can be found under the data folder. In this folder CAMELSUS data can be found which
+    The data used for the proejct can be found under the data folder. In this folder CAMELS_US data can be found which
     consists of three main datasets; 
     - the basin_mean_forcing containing all the meteorological time series data
     - usgs_streamflow containing the streamflow data
@@ -55,13 +55,18 @@ to assess whether the trained model, trained by data from HUC 17, could also mak
     Under the neuralhydrology folder, there is a subfolder called modelzoo. This folder contains a cudalstm.py file that has the coded
     LSTM model stored there as well as a head.py file which contains the coding for the MCD.
 
-#### Notebooks:
+#### Notebook + corresponding files:
 
 - Folder: [Notebook](../Project-Run)
 
-    The notebooks that were used to actually use the data and models are stored in the Project-Run file. They serve as the project documentation in which every step taken during the project is showed and explained.
+    The notebook that was used to actually use the data and models are stored in the Project-notebook file. This serves as the project documentation in which every step taken during the project is showed and explained.
     
-    Apart from the notebook file the files called 'run' are the results for different model runs we performed. These are imported into the notebook and evaluated in there.
+    Apart from the notebook file, there are several folders:
+
+    - Configuration files: used for setting the  configurations of training, validation, model, training and data used for each model run.
+    - Evaluation model results: stored evaluation results of the base model and MCD model.
+    - LSTM model: results for determining the hidden size of the used LSTM model.
+
 
 #### Evaluation Metrics:
 
@@ -69,8 +74,7 @@ to assess whether the trained model, trained by data from HUC 17, could also mak
 
 
 
-    Lastly, the introduced evaluation metrics such as the PICP and PINAW can be found under neuralhydrology/evaluation/metrics.py in which all
-    the available metrics are stored.
+    Lastly, the introduced evaluation metrics such as the PICP and PINAW can be found here, in which all the metrics for deterministic evaluation can be found as well.
 
 
 ## Contributors
@@ -83,6 +87,10 @@ The HBV group members and their contributions are:
 - Thomas Poort          (4715500)
 
 The detailed work plan is available in the project documentation. 
+
+# Appendix
+
+Here the ReadMe file from the original Neuralhydrology Github can be seen.
 
 ## Original Repository
 
