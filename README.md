@@ -17,15 +17,14 @@ The README is structured as follows:
 ## Rainfall-runoff modeling
 
 While hydrological predictions are fundamental for effective water resource management, the lack of uncertainty estimations poses a significant challenge. 
-Existing applications predominantly focus on point forecasts, overlooking the critical need for estimating the associated confidence levels. This gap in 
-uncertainty consideration hinders informed decision-making. Moreover, the absence of dedicated metrics for evaluating uncertainty estimation further compounds 
-the issue. 
+Existing applications predominantly focus on single point forecasts, overlooking the critical need for estimating the associated confidence levels. This gap in 
+uncertainty consideration hinders informed decision-making. Moreover, the absence of dedicated metrics for evaluating uncertainty estimation further creates an issue. 
 
 For this reason a LSTM (Long Short-Term Memory) model was trained based on imported CAMELS data for the United States, specifically for Hydrological Unit 17 
  (HUC 17) which has data for basins in the North-West upper corner of the United States (namely the states Washington, Oregon).
 As the LSTM model itself only returns deterministic results (one discharge prediction per timestep), the Monte Carlo Dropout method was used to obtain
-an uncertainty estimation. Based on the results of this methods uncertainty intervals were created and these were evaluated by newly introduced evaluation 
-metrics, the PICP (Prediction Interval Coverage Probability) and PINAW (Prediction Interval Normalized Average Width). By computing the uncertainty interval 
+an uncertainty estimation. Based on the results of this methods, uncertainty intervals were created and these were evaluated by newly introduced evaluation 
+metrics; the PICP (Prediction Interval Coverage Probability) and PINAW (Prediction Interval Normalized Average Width). By computing the uncertainty interval 
 of the methods we hope to bridge the gap in knowledge that currently exists due to the fact that only deterministic results are predicted. Furthermore, by 
 evaluating these uncertainty estimations and creating the evaluation metrics we try to estimate what indeed is the best way to model rainfall runoff.
 
@@ -40,7 +39,7 @@ to assess whether the trained model, trained by data from HUC 17, could also mak
 
 
     The data used for the proejct can be found under the data folder. In this folder CAMELS_US data can be found which
-    consists of three main datasets; 
+    consists of three main datasets: 
     - the basin_mean_forcing containing all the meteorological time series data
     - usgs_streamflow containing the streamflow data
     - camels_attribute_v2.0 that extracts all the basin attributes.
@@ -90,7 +89,7 @@ The detailed work plan is available in the project documentation.
 
 # Appendix
 
-Here the ReadMe file from the original Neuralhydrology Github can be seen.
+Here the ReadMe file from the original Neuralhydrology Github can be
 
 ## Original Repository
 
