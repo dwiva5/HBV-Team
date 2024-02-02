@@ -139,6 +139,92 @@ def calculate_all_metrics_prob(obs: DataArray,
 
     return results
 
+import pandas as pd
+
+def calculate_probabilistic_metrics_dataframe(results, coverage=95):
+    """
+    Calculate the PICP and PINAW for all basins in the results and return as a DataFrame.
+
+    Args:
+    - results (dict): Dictionary containing discharge observations and simulations for each basin.
+    - coverage (int): The desired coverage probability for the prediction interval (default is 95).
+
+    Returns:
+    - DataFrame: A DataFrame with columns ['Basin ID', 'PICP', 'PINAW'].
+    """
+    # List to store results for each basin
+    basin_metrics_list = []
+
+    # Iterate over each basin in the results
+    for basin, basin_data in results.items():
+        # Extract observations and simulations
+        qobs = basin_data['1D']['xr']['QObs(mm/d)_obs']
+        qsim = basin_data['1D']['xr']['QObs(mm/d)_sim']
+
+        # Preprocess result before evaluation
+        qsim_pi = qsim.values.swapaxes(0, 2).squeeze()
+        qobs_pi = qobs.values.squeeze()
+
+        # Calculate metrics for probabilistic forecasting
+        basin_metrics = calculate_all_metrics_prob(qobs_pi, qsim_pi, coverage)
+
+        # Append metrics to the list
+        basin_metrics_list.append([basin, basin_metrics['PICP'], basin_metrics['PINAW']])
+
+    # Create a DataFrame from the list
+    metrics_df_prob = pd.DataFrame(basin_metrics_list, columns=['Basin ID', 'PICP', 'PINAW'])
+
+    return metrics_df_prob
+
+
+import pandas as pd
+
+def calculate_metrics_dataframe(results):
+    """
+    Calculate metrics for each basin using mean and median results of probabilistic forecasting
+    and return as a DataFrame.
+
+    Args:
+    - results (dict): Dictionary containing results for each basin.
+
+    Returns:
+    - DataFrame: A DataFrame with Basin IDs and corresponding metrics.
+    """
+    # List to store results for each basin
+    basin_metrics_list = []
+
+    for key in results.keys():
+        dataset = results[key]['1D']['xr']
+        
+        # Extract observed data
+        qobs = dataset['QObs(mm/d)_obs'].isel(time_step=-1)
+        # Extract mean and median simulated data
+        qsim_mean = dataset['QObs(mm/d)_sim_mean'].isel(time_step=-1)
+        qsim_median = dataset['QObs(mm/d)_sim_median'].isel(time_step=-1)
+
+        # Calculate metrics for mean simulated data
+        mean_metrics = calculate_all_metrics(qobs, qsim_mean)
+        # Calculate metrics for median simulated data
+        median_metrics = calculate_all_metrics(qobs, qsim_median)
+
+        # Prepare data for the DataFrame
+        basin_metrics_data = [key]
+        basin_metrics_data.extend([mean_metrics[m] for m in mean_metrics])
+        basin_metrics_data.extend([median_metrics[m] for m in median_metrics])
+
+        basin_metrics_list.append(basin_metrics_data)
+
+    # Define column names for the DataFrame
+    columns = ['Basin ID']
+    columns.extend([f"Mean_{m}" for m in mean_metrics])
+    columns.extend([f"Median_{m}" for m in median_metrics])
+
+    # Create a DataFrame from the list
+    metrics_df = pd.DataFrame(basin_metrics_list, columns=columns)
+
+    return metrics_df
+
+
 def crps(sim, y_test):
     """Compute Continuous Ranked Probability Score (CRPS) for all samples."""
     num_samples = sim.shape[0]
