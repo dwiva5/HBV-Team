@@ -22,7 +22,7 @@ forcings:
 - nldas
 head: regression
 hidden_size: 250
-img_log_dir: run_cudalstm_3101_095139/img_log
+img_log_dir: LSTM Model/Hidden Size 250/img_log
 initial_forget_bias: 3
 learning_rate:
   0: 0.001
@@ -78,9 +78,12 @@ static_attributes:
 - low_prec_dur
 target_variables:
 - QObs(mm/d)
+# Test for HUC 17 (uncomment one of them)
 # test_basin_file: basin_huc_17.txt
 # test_end_date: 31/12/2009
 # test_start_date: 01/01/2005
+
+# Test for HUC 18
 test_basin_file: basin_huc_18.txt
 test_end_date: 31/12/2009
 test_start_date: 01/01/2005

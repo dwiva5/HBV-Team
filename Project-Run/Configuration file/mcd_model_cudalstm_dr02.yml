@@ -48,19 +48,19 @@ output_activation: linear
 # ----> General settings <----
 
 # Number of cell states of the LSTM
-hidden_size: 20
+hidden_size: 250
 
 # Initial bias value of the forget gate
 initial_forget_bias: 3
 
 mc_dropout: True
 
-n_samples: 20
+n_samples: 1000
 
 negative_sample_handling: 'clip'
 
 # Dropout applied to the output of the LSTM
-output_dropout: 0.4
+output_dropout: 0.2
 
 # --- Training configuration -----------------------------------------------------------------------
 
@@ -72,9 +72,7 @@ loss: MSE
 
 # specify learning rates to use starting at specific epochs (0 is the initial learning rate)
 learning_rate:
-  0: 1e-2
-  30: 5e-3
-  40: 1e-3
+  0: 0.001
 
 # Mini-batch size
 batch_size: 256
